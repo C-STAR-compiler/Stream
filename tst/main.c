@@ -8,7 +8,8 @@ int main(void)
 {
   CHECK_MEMORY
 
-  CharStream *test = (CharStream*) NEW (FileStream) (fopen("tst/test.txt", "r"));
+  // CharStream *test = (CharStream*) NEW (FileStream) (fopen("tst/test.txt", "r"));
+  CharStream *test = (CharStream*)FileStream_Open("tst/test.txt", ACCESS_READ);
 
   printf("Initialized\n");
   while (1)
