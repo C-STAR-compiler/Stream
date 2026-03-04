@@ -15,61 +15,61 @@
 #include "stream.export.h"
 
 // Abstract class
-#define LIB_EXPORT STREAM_EXPORT
+#define PUBLIC STREAM_EXPORT
 #define TYPENAME CharStream
 
 // (!) This class must always be initialized using the NEW macro
 OBJECT (void *stream) INHERIT (Stream)
 END_OBJECT(NULL);
 
-STREAM_EXPORT int  _(Peek)();
-STREAM_EXPORT int  _(Get)();
-STREAM_EXPORT void _(Unget)(int c);
-STREAM_EXPORT void _(Put)(int c);
+PUBLIC int  _(Peek)();
+PUBLIC int  _(Get)();
+PUBLIC void _(Unget)(int c);
+PUBLIC void _(Put)(int c);
 
-STREAM_EXPORT int  _(Escape)();
-STREAM_EXPORT int  _(Read)();
-STREAM_EXPORT int  _(ReadWith)(int escape);
-STREAM_EXPORT void _(Write)(int c);
-STREAM_EXPORT void _(WriteWith)(int escape, int c);
+PUBLIC int  _(Escape)();
+PUBLIC int  _(Read)();
+PUBLIC int  _(ReadWith)(int escape);
+PUBLIC void _(Write)(int c);
+PUBLIC void _(WriteWith)(int escape, int c);
 
-STREAM_EXPORT int CONST (EOS)();
-
-// Puts the line as is
-STREAM_EXPORT void    _(PutStr)(const char *line);
-// Puts the line and generates escape sequences based on the specified escape char
-STREAM_EXPORT void    _(WriteStr)(const char *line);
+PUBLIC int CONST (EOS)();
 
 // Puts the line as is
-STREAM_EXPORT void    _(PutLn)(const char *line);
+PUBLIC void    _(PutStr)(const char *line);
 // Puts the line and generates escape sequences based on the specified escape char
-STREAM_EXPORT void    _(WriteLn)(const char *line);
+PUBLIC void    _(WriteStr)(const char *line);
+
+// Puts the line as is
+PUBLIC void    _(PutLn)(const char *line);
+// Puts the line and generates escape sequences based on the specified escape char
+PUBLIC void    _(WriteLn)(const char *line);
 
 // Gets the line as is
-STREAM_EXPORT String *_(GetLine)();
+PUBLIC String *_(GetLine)();
 
 // Gets the line and interprets what's after the escape char
-STREAM_EXPORT String *_(ReadLine)();
+PUBLIC String *_(ReadLine)();
 
 // Gets and consume the stream
-STREAM_EXPORT String *_(GetToEnd)();
+PUBLIC String *_(GetToEnd)();
 
 // Reads and consume the stream
-STREAM_EXPORT String *_(ReadToEnd)();
+PUBLIC String *_(ReadToEnd)();
 
 // Puts an object to the stream
-STREAM_EXPORT void _(PutString)(void *object);
+PUBLIC void _(PutString)(void *object);
 
 // Writes an object to the stream
-STREAM_EXPORT void _(WriteString)(void *object);
+PUBLIC void _(WriteString)(void *object);
 
 // Puts an object to the stream and newline
-STREAM_EXPORT void _(PutLine)(void *object);
+PUBLIC void _(PutLine)(void *object);
 
 // Writes an object to the stream and newline
-STREAM_EXPORT void _(WriteLine)(void *object);
+PUBLIC void _(WriteLine)(void *object);
 
 
 #undef TYPENAME
-#undef LIB_EXPORT
+#undef PUBLIC
 #endif

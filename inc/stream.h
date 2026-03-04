@@ -14,7 +14,7 @@
 #include "stream.export.h"
 
 // Abstract class
-#define LIB_EXPORT STREAM_EXPORT
+#define PUBLIC STREAM_EXPORT
 #define TYPENAME Stream
 
 typedef enum {
@@ -37,16 +37,16 @@ OBJECT (void *stream) INHERIT (void*)
   const void  (*Put)  (Stream *stream, const void *token);
 END_OBJECT(NULL);
 
-STREAM_EXPORT       void  _(Close)();
-STREAM_EXPORT const void *_(Peek)();
-STREAM_EXPORT const void *_(Get)();
-STREAM_EXPORT       void  _(Unget)(const void *token);
-STREAM_EXPORT       void  _(Put)(const void *token);
+PUBLIC       void  _(Close)();
+PUBLIC const void *_(Peek)();
+PUBLIC const void *_(Get)();
+PUBLIC       void  _(Unget)(const void *token);
+PUBLIC       void  _(Put)(const void *token);
 
 // TODO: Add seek methods
 
-STREAM_EXPORT void STATIC (Mode)(AccessModes mode, char *buffer);
+PUBLIC void STATIC (Mode)(AccessModes mode, char *buffer);
 
 #undef TYPENAME
-#undef LIB_EXPORT
+#undef PUBLIC
 #endif
